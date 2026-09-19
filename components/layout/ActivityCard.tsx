@@ -16,18 +16,14 @@ export interface ActivityCardProps {
   item: ActivityCardItem
   className?: string
   showWatermark?: boolean
-  variant?: "default" | "dark"
 }
 
 export function ActivityCard({
   item,
   className = "",
   showWatermark = true,
-  variant = "default",
 }: ActivityCardProps) {
   const Icon = item.icon
-  const activeVariant = variant || item.variant || "default"
-  const isDark = activeVariant === "dark"
   const activeClassName = className || item.className || ""
 
   return (
@@ -35,7 +31,7 @@ export function ActivityCard({
       href={item.href}
       className={`group card-brutal ${
         isDark
-          ? "border-paper-warm/30 bg-ink text-paper shadow-[3px_3px_0_var(--color-paper-warm)] hover:shadow-[5px_5px_0_var(--color-paper-warm)]"
+          ? "border-paper-warm/30 bg-zinc-800 text-paper shadow-[3px_3px_0_var(--color-paper-warm)] hover:shadow-[5px_5px_0_var(--color-paper-warm)]"
           : ""
       } ${activeClassName}`}
     >

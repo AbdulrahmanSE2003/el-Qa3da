@@ -1,6 +1,7 @@
 import { Cairo, IBM_Plex_Mono } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const cairo = Cairo({
   subsets: ["arabic"],
@@ -37,7 +38,7 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-screen bg-paper font-sans text-foreground">
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   )

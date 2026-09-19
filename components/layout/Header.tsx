@@ -47,7 +47,7 @@ const Header = ({
             )}
           </button>
 
-          <span className="border border-copper/30 bg-copper/10 px-2.5 py-1 font-mono text-[10px] font-bold tracking-widest text-copper">
+          <span className="border border-copper/30 bg-copper/10 px-2.5 py-2 font-mono text-[10px] font-bold tracking-widest text-copper">
             {stamp}
           </span>
         </div>

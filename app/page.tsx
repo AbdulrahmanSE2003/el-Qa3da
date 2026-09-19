@@ -53,7 +53,6 @@ export const activities: ActivityCardItem[] = [
     href: "/games",
     icon: Gamepad2,
     className: "col-span-2",
-    variant: "dark",
   },
 ]
 
@@ -88,7 +87,6 @@ export default function HomePage() {
               item={item}
               key={item.number}
               className={item?.className ?? ""}
-              variant={item?.variant ?? "default"}
             />
           ))}
         </section>

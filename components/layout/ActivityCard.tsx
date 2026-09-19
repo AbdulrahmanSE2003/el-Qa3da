@@ -26,6 +26,9 @@ export function ActivityCard({
   const Icon = item.icon
   const activeClassName = className || item.className || ""
 
+  // Added missing isDark variable derivation
+  const isDark = item.variant === "dark"
+
   return (
     <Link
       href={item.href}

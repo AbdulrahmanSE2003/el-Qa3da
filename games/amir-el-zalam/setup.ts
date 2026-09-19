@@ -1,6 +1,17 @@
 import type { Player } from "@/store/party-store"
-
 import type { AmirPlayer, AmirRole } from "./types"
+
+const shuffle = <T>(items: T[]): T[] => {
+  const shuffled = [...items]
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+
+  return shuffled
+}
 
 export const assignRoles = (
   players: Player[],
@@ -16,36 +27,23 @@ export const assignRoles = (
     throw new Error("Invalid Mafia count")
   }
 
-  const shuffledPlayers = [...players]
+  const roles: AmirRole[] = [
+    ...Array<AmirRole>(mafiaCount).fill("mafia"),
+    "police",
+    "doctor",
+    ...Array<AmirRole>(players.length - mafiaCount - 2).fill("civilian"),
+  ]
 
-  for (let i = shuffledPlayers.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
+  const shuffledPlayers = shuffle(players)
+  const shuffledRoles = shuffle(roles)
 
-    ;[shuffledPlayers[i], shuffledPlayers[j]] = [
-      shuffledPlayers[j],
-      shuffledPlayers[i],
-    ]
-  }
+  const assignedPlayers = shuffledPlayers.map((player, index) => ({
+    id: player.id,
+    name: player.name,
+    role: shuffledRoles[index],
+    alive: true,
+    silenced: false,
+  }))
 
-  return shuffledPlayers.map((player, index) => {
-    let role: AmirRole
-
-    if (index < mafiaCount) {
-      role = "mafia"
-    } else if (index === mafiaCount) {
-      role = "police"
-    } else if (index === mafiaCount + 1) {
-      role = "doctor"
-    } else {
-      role = "civilian"
-    }
-
-    return {
-      id: player.id,
-      name: player.name,
-      role,
-      alive: true,
-      silenced: false,
-    }
-  })
+  return shuffle(assignedPlayers)
 }

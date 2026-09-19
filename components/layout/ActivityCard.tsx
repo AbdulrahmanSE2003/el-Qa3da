@@ -22,7 +22,7 @@ export interface ActivityCardProps {
 export function ActivityCard({
   item,
   className = "",
-  showWatermark = false,
+  showWatermark = true,
   variant = "default",
 }: ActivityCardProps) {
   const Icon = item.icon
@@ -40,7 +40,7 @@ export function ActivityCard({
       } ${activeClassName}`}
     >
       {showWatermark && (
-        <span className={`watermark-num ${isDark ? "text-paper/[0.05]" : ""}`}>
+        <span className={`watermark-num ${isDark ? "text-paper/5" : ""}`}>
           {item.number}
         </span>
       )}

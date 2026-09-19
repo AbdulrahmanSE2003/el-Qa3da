@@ -3,6 +3,7 @@
 import Link from "next/link"
 import {
   ArrowUpLeft,
+  CircleQuestionMark,
   Dices,
   Gamepad2,
   MessageCircle,
@@ -17,6 +18,7 @@ import {
   ActivityCard,
   ActivityCardItem,
 } from "@/components/layout/ActivityCard"
+import HomeBottomNav from "@/components/layout/HomeBottomNav"
 
 export const activities: ActivityCardItem[] = [
   {
@@ -38,10 +40,10 @@ export const activities: ActivityCardItem[] = [
   {
     number: "03",
     stamp: "QUESTIONS",
-    title: "أسألة واعترافات",
+    title: "شيح الحارة",
     description: "جاهز للإستجواب؟",
     href: "/sheikh",
-    icon: Gamepad2,
+    icon: CircleQuestionMark,
   },
   {
     number: "04",
@@ -57,7 +59,7 @@ export const activities: ActivityCardItem[] = [
 
 export default function HomePage() {
   return (
-    <main className="relative overflow-hidden bg-paper px-5 py-6 text-ink">
+    <main className="relative overflow-hidden bg-paper px-5 pt-7 pb-24 text-ink">
       <GridPattern />
       <BackgroundAtmosphere />
 
@@ -80,7 +82,7 @@ export default function HomePage() {
         <ActivityCard item={activities[0]} />
 
         {/* Secondary Activities */}
-        <section className="mt-5 grid grid-cols-2 gap-3">
+        <section className="mt-4 grid grid-cols-2 gap-3">
           {activities.slice(1).map((item) => (
             <ActivityCard
               item={item}
@@ -90,6 +92,7 @@ export default function HomePage() {
             />
           ))}
         </section>
+        <HomeBottomNav />
       </div>
     </main>
   )

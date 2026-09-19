@@ -160,7 +160,7 @@
 }
 
 @utility watermark-num {
-  @apply pointer-events-none absolute -bottom-4 -left-6 font-mono text-[5rem] font-black leading-none text-ink-glow/10;
+  @apply pointer-events-none absolute -bottom-4 -left-6 font-mono text-[7rem] font-black leading-none text-ink-glow/10;
 }
 
 @utility icon-box {
@@ -168,7 +168,7 @@
 }
 
 @utility stamp-text {
-  @apply font-mono text-[8px] font-bold tracking-widest text-copper;
+  @apply font-mono text-xs font-bold tracking-widest text-copper;
 }
 
 @utility arrow-hover {

@@ -1,7 +1,26 @@
-import { ArrowRight } from "lucide-react"
+"use client"
+
+import { ArrowRight, Moon, Sun } from "lucide-react"
+
 import Link from "next/link"
 
-const Header = ({ stamp, href }: { stamp: string; href?: string }) => {
+import { useTheme } from "next-themes"
+
+const Header = ({
+  stamp,
+  href,
+  linkText,
+}: {
+  stamp: string
+  href?: string
+  linkText?: string
+}) => {
+  const { resolvedTheme, setTheme } = useTheme()
+
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+  }
+
   return (
     <header className="relative z-10 w-full max-w-md">
       <div className="flex items-center justify-between border-b border-ink/10 pb-3">
@@ -10,12 +29,28 @@ const Header = ({ stamp, href }: { stamp: string; href?: string }) => {
           className="group flex items-center gap-1.5 font-mono text-xs font-bold text-ink-soft transition-colors hover:text-copper"
         >
           <ArrowRight className="size-4 transition-transform duration-200 group-hover:-translate-x-0.5" />
-          <span>الرئيسية</span>
+
+          <span>{linkText || "الرئيسية"}</span>
         </Link>
 
-        <span className="border border-copper/30 bg-copper/10 px-2.5 py-1 font-mono text-[10px] font-bold tracking-widest text-copper">
-          {stamp}
-        </span>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label="تغيير المظهر"
+            className="flex size-8 items-center justify-center border border-ink/10 text-ink-soft transition-colors hover:border-copper/30 hover:text-copper"
+          >
+            {resolvedTheme === "dark" ? (
+              <Sun className="size-4" />
+            ) : (
+              <Moon className="size-4" />
+            )}
+          </button>
+
+          <span className="border border-copper/30 bg-copper/10 px-2.5 py-1 font-mono text-[10px] font-bold tracking-widest text-copper">
+            {stamp}
+          </span>
+        </div>
       </div>
     </header>
   )

@@ -16,7 +16,7 @@ export default function AmirElZalamPage() {
 
   useEffect(() => {
     if (players.length === 0) {
-      router.replace("/players?returnTo=/games/amir-el-zalam")
+      router.replace("/players?redirect=/games/amir-el-zalam")
     }
   }, [players.length, router])
 

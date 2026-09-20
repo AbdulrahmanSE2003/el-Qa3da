@@ -69,7 +69,7 @@ export default function HomePage() {
         {/* Intro */}
         <section className="mt-10 mb-5">
           <h2 className="text-2xl font-black tracking-tight">
-            الليلة نعمل إيه؟
+            النهاردة هنعمل إيه؟
           </h2>
 
           <p className="mt-1 text-sm font-medium text-ink-soft/70">

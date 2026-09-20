@@ -31,6 +31,7 @@ export default function RootLayout({
     <html
       lang="ar"
       dir="rtl"
+      suppressHydrationWarning
       className={cn(
         "antialiased selection:bg-primary/30 selection:text-foreground",
         cairo.variable,

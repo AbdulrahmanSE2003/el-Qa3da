@@ -9,6 +9,7 @@ import type { AmirGameState } from "@/games/amir-el-zalam/types"
 
 import { usePartyStore } from "@/store/party-store"
 import { Button } from "@/components/ui/button"
+import { GameGuideModal } from "./GameGuide"
 
 interface RoleSetupProps {
   onStart: (game: AmirGameState) => void
@@ -40,9 +41,12 @@ const RoleSetup = ({ onStart }: RoleSetupProps) => {
   return (
     <section className="flex w-full flex-col gap-6">
       <div className="border-b border-ink/10 pb-5">
-        <p className="font-mono text-[10px] font-bold tracking-[0.25em] text-copper">
-          AMIR EL ZALAM
-        </p>
+        <div className="flex items-center justify-between">
+          <p className="font-mono text-[10px] font-bold tracking-[0.25em] text-copper">
+            AMIR EL ZALAM
+          </p>
+          <GameGuideModal />
+        </div>
 
         <h1 className="mt-2 text-4xl font-black text-ink">أمير الظلام</h1>
 

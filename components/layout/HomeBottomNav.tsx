@@ -1,7 +1,6 @@
 "use client"
 
-import { Gamepad2, Home, Users } from "lucide-react"
-
+import { Gamepad2, Home, Menu, Users } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -12,14 +11,19 @@ const navItems = [
     icon: Home,
   },
   {
+    href: "/games",
+    label: "الألعاب",
+    icon: Gamepad2,
+  },
+  {
     href: "/players",
     label: "القعدة",
     icon: Users,
   },
   {
-    href: "/games",
-    label: "الألعاب",
-    icon: Gamepad2,
+    href: "/more",
+    label: "المزيد",
+    icon: Menu,
   },
 ]
 
@@ -37,12 +41,11 @@ const HomeBottomNav = () => {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex min-w-20 flex-col items-center gap-1 px-3 py-2 transition-colors ${
+              className={`flex min-w-16 flex-col items-center gap-1 px-3 py-2 transition-colors ${
                 isActive ? "text-copper" : "text-ink-soft hover:text-ink"
               }`}
             >
               <Icon className="size-5" />
-
               <span className="text-[10px] font-bold">{item.label}</span>
             </Link>
           )

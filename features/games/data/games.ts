@@ -18,7 +18,7 @@ export const GAMES_LIST: GameItem[] = [
     title: "أمير الظلام",
     description: "مين هيعرف يكتشف المافيا قبل ما القعدة تقع؟",
     status: "متاحة",
-    icon: Skull,
+    icon: Ghost,
     href: "/games/amir-el-zalam",
     theme: "dark",
     isRecommended: true,
@@ -28,7 +28,7 @@ export const GAMES_LIST: GameItem[] = [
     title: "مافيوسو",
     description: "لعبة مافيا بشكل مختلف ولسه جاية.",
     status: "قريبًا",
-    icon: Ghost,
+    icon: Skull,
     theme: "sepia",
   },
   {

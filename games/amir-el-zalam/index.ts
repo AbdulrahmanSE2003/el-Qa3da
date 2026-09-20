@@ -64,7 +64,23 @@ export const setMafiaSilenceTarget = (
 }
 
 export const startPolicePhase = (state: AmirGameState) => {
-  return setPhase(state, "police")
+  const policeAlive = state.players.some(
+    (player) => player.role === "police" && player.alive
+  )
+
+  if (policeAlive) {
+    return setPhase(state, "police")
+  }
+
+  const doctorAlive = state.players.some(
+    (player) => player.role === "doctor" && player.alive
+  )
+
+  if (doctorAlive) {
+    return setPhase(state, "doctor")
+  }
+
+  return resolveNight(state)
 }
 
 export const investigatePlayer = (state: AmirGameState, targetId: string) => {
@@ -72,16 +88,19 @@ export const investigatePlayer = (state: AmirGameState, targetId: string) => {
     return state
   }
 
-  const result = resolvePoliceInvestigation(state, targetId)
-
-  return {
-    ...setNightAction(state, "policeTargetId", targetId),
-    lastPoliceResult: result,
-  }
+  return setNightAction(state, "policeTargetId", targetId)
 }
 
 export const startDoctorPhase = (state: AmirGameState) => {
-  return setPhase(state, "doctor")
+  const doctorAlive = state.players.some(
+    (player) => player.role === "doctor" && player.alive
+  )
+
+  if (doctorAlive) {
+    return setPhase(state, "doctor")
+  }
+
+  return resolveNight(state)
 }
 
 export const healPlayer = (state: AmirGameState, targetId: string) => {
@@ -95,14 +114,20 @@ export const healPlayer = (state: AmirGameState, targetId: string) => {
 export const resolveNight = (state: AmirGameState) => {
   const result = resolveNightKill(state)
 
+  const savedId = result.saved ? state.nightActions.mafiaKillTargetId : null
+
   let nextState = setNightResult(state, {
     killedId: result.killedId,
     saved: result.saved,
-    policeResult: state.lastPoliceResult,
+    savedId,
+    policeTargetId: state.nightActions.policeTargetId,
+    policeResult: state.nightActions.policeTargetId
+      ? resolvePoliceInvestigation(state, state.nightActions.policeTargetId)
+      : null,
   })
 
   if (result.killedId) {
-    nextState = eliminatePlayer(nextState, result.killedId)
+    nextState = eliminatePlayer(nextState, result.killedId, "killed")
   }
 
   if (state.nightActions.mafiaSilenceTargetId) {
@@ -112,9 +137,36 @@ export const resolveNight = (state: AmirGameState) => {
     )
   }
 
-  nextState = setPhase(nextState, "night-result")
+  const policeTargetId = state.nightActions.policeTargetId
 
-  return nextState
+  const policeFoundMafia =
+    policeTargetId !== null && resolvePoliceInvestigation(state, policeTargetId)
+
+  if (policeFoundMafia) {
+    nextState = eliminatePlayer(nextState, policeTargetId, "exposed")
+  }
+
+  return setPhase(nextState, "night-result")
+}
+
+const getNextNightPhase = (state: AmirGameState): AmirGameState => {
+  const policeAlive = state.players.some(
+    (player) => player.role === "police" && player.alive
+  )
+
+  if (policeAlive) {
+    return setPhase(state, "police")
+  }
+
+  const doctorAlive = state.players.some(
+    (player) => player.role === "doctor" && player.alive
+  )
+
+  if (doctorAlive) {
+    return setPhase(state, "doctor")
+  }
+
+  return resolveNight(state)
 }
 
 export const startDiscussion = (state: AmirGameState) =>
@@ -124,15 +176,9 @@ export const startElimination = (state: AmirGameState) =>
   setPhase(state, "elimination")
 
 export const eliminate = (state: AmirGameState, playerId: string) => {
-  const nextState = eliminatePlayer(state, playerId)
+  const nextState = eliminatePlayer(state, playerId, "voted")
 
-  const winner = checkWinner(nextState)
-
-  if (winner) {
-    return setWinner(nextState, winner)
-  }
-
-  return nextState
+  return setPhase(nextState, "elimination-result")
 }
 
 export const finishNightAndContinue = (state: AmirGameState) => {

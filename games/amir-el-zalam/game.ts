@@ -1,4 +1,5 @@
 import type {
+  AmirEliminationReason,
   AmirGameState,
   AmirPhase,
   AmirPlayer,
@@ -21,6 +22,8 @@ export const createAmirGame = (players: AmirPlayer[]): AmirGameState => ({
   nightActions: createEmptyNightActions(),
   lastNightKilledId: null,
   lastNightSaved: false,
+  lastNightSavedId: null,
+  lastPoliceTargetId: null,
   lastPoliceResult: null,
   eliminatedPlayerId: null,
   winner: null,
@@ -64,18 +67,23 @@ export const setNightResult = (
   result: {
     killedId: string | null
     saved: boolean
+    savedId: string | null
+    policeTargetId: string | null
     policeResult: boolean | null
   }
 ): AmirGameState => ({
   ...state,
   lastNightKilledId: result.killedId,
   lastNightSaved: result.saved,
+  lastNightSavedId: result.savedId,
+  lastPoliceTargetId: result.policeTargetId,
   lastPoliceResult: result.policeResult,
 })
 
 export const eliminatePlayer = (
   state: AmirGameState,
-  playerId: string
+  playerId: string,
+  reason: AmirEliminationReason
 ): AmirGameState => ({
   ...state,
   players: state.players.map((player) =>
@@ -84,6 +92,7 @@ export const eliminatePlayer = (
           ...player,
           alive: false,
           silenced: false,
+          eliminationReason: reason,
         }
       : player
   ),
@@ -125,6 +134,8 @@ export const startNextNight = (state: AmirGameState): AmirGameState => ({
   eliminatedPlayerId: null,
   lastNightKilledId: null,
   lastNightSaved: false,
+  lastNightSavedId: null,
+  lastPoliceTargetId: null,
   lastPoliceResult: null,
   nightActions: createEmptyNightActions(),
   players: state.players.map((player) => ({

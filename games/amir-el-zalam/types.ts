@@ -1,5 +1,7 @@
 export type AmirRole = "mafia" | "police" | "doctor" | "civilian"
 
+export type AmirEliminationReason = "killed" | "voted" | "exposed"
+
 export type AmirPhase =
   | "setup"
   | "role-reveal"
@@ -9,6 +11,7 @@ export type AmirPhase =
   | "night-result"
   | "discussion"
   | "elimination"
+  | "elimination-result"
   | "finished"
 
 export interface AmirPlayer {
@@ -17,6 +20,7 @@ export interface AmirPlayer {
   role: AmirRole
   alive: boolean
   silenced: boolean
+  eliminationReason?: AmirEliminationReason
 }
 
 export interface NightActions {
@@ -30,18 +34,17 @@ export interface AmirGameState {
   phase: AmirPhase
   round: number
   night: number
-
   players: AmirPlayer[]
-
   currentRevealIndex: number
-
   nightActions: NightActions
 
   lastNightKilledId: string | null
   lastNightSaved: boolean
+  lastNightSavedId: string | null
+
+  lastPoliceTargetId: string | null
   lastPoliceResult: boolean | null
 
   eliminatedPlayerId: string | null
-
   winner: "mafia" | "civilians" | null
 }

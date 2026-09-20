@@ -18,7 +18,6 @@ export const canMafiaSilence = (state: AmirGameState, targetId: string) => {
 
   if (!target) return false
   if (!target.alive) return false
-  if (target.role === "mafia") return false
 
   return true
 }

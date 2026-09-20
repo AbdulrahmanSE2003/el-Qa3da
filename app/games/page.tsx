@@ -2,10 +2,11 @@ import GridPattern from "@/components/atmosphere/GridPattern"
 import BackgroundAtmosphere from "@/components/atmosphere/BackgroundAtmosphere"
 import Header from "@/components/layout/Header"
 import Games from "@/features/games/components/Games"
+import HomeBottomNav from "@/components/layout/HomeBottomNav"
 
 export default function GamesPage() {
   return (
-    <main className="relative min-h-dvh overflow-hidden bg-paper px-5 py-6 text-ink">
+    <main className="relative min-h-dvh overflow-hidden bg-paper px-5 py-6 pb-24 text-ink">
       <GridPattern />
       <BackgroundAtmosphere />
 
@@ -27,6 +28,8 @@ export default function GamesPage() {
         </div>
 
         <Games />
+
+        <HomeBottomNav />
       </div>
     </main>
   )

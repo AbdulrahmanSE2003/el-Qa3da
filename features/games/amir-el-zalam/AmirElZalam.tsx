@@ -6,6 +6,14 @@ import type { AmirGameState } from "@/games/amir-el-zalam/types"
 
 import RoleReveal from "./RoleReveal"
 import RoleSetup from "./RoleSetup"
+import MafiaPhase from "./MafiaPhase"
+import PolicePhase from "./PolicePhase"
+import DoctorPhase from "./DoctorPhase"
+import NightResult from "./NightResult"
+import DiscussionPhase from "./DiscussionPhase"
+import EliminationPhase from "./EliminationPhase"
+import GameFinished from "./GameFinished"
+import EliminationResult from "./EliminationResult"
 
 const AmirElZalam = () => {
   const [game, setGame] = useState<AmirGameState | null>(null)
@@ -14,19 +22,36 @@ const AmirElZalam = () => {
     return <RoleSetup onStart={setGame} />
   }
 
-  if (game.phase === "role-reveal") {
-    return <RoleReveal game={game} onChange={setGame} />
+  switch (game.phase) {
+    case "role-reveal":
+      return <RoleReveal game={game} onChange={setGame} />
+
+    case "mafia":
+      return <MafiaPhase game={game} onChange={setGame} />
+
+    case "police":
+      return <PolicePhase game={game} onChange={setGame} />
+
+    case "doctor":
+      return <DoctorPhase game={game} onChange={setGame} />
+
+    case "night-result":
+      return <NightResult game={game} onChange={setGame} />
+
+    case "discussion":
+      return <DiscussionPhase game={game} onChange={setGame} />
+
+    case "elimination":
+      return <EliminationPhase game={game} onChange={setGame} />
+
+    case "elimination-result":
+      return <EliminationResult game={game} onChange={setGame} />
+    case "finished":
+      return <GameFinished game={game} />
+
+    default:
+      return null
   }
-
-  return (
-    <div className="bg-warm-paper border border-ink/10 p-6">
-      <p className="font-mono text-[10px] font-bold tracking-[0.25em] text-copper">
-        PHASE
-      </p>
-
-      <h2 className="mt-2 text-2xl font-black text-ink">{game.phase}</h2>
-    </div>
-  )
 }
 
 export default AmirElZalam

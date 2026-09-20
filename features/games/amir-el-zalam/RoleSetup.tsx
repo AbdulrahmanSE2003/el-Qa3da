@@ -60,8 +60,6 @@ const RoleSetup = ({ onStart }: RoleSetupProps) => {
               {players.length} لاعبين
             </p>
           </div>
-
-          <span className="font-mono text-xs text-copper">ثابت</span>
         </div>
       </div>
 

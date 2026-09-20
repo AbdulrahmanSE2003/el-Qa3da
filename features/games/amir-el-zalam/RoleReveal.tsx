@@ -84,7 +84,9 @@ const RoleReveal = ({ game, onChange }: RoleRevealProps) => {
 
       {revealed && (
         <Button variant={"secondary"} onClick={handleNext}>
-          تمام — اللاعب اللي بعدي
+          {game.currentRevealIndex < game.players.length - 1
+            ? "  تمام — اللاعب اللي بعدي"
+            : "يلا بينا"}
         </Button>
       )}
     </section>

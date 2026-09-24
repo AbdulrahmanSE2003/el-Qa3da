@@ -10,7 +10,7 @@ const triggerButton=(<button className="group flex size-10 items-center justify-
     </button>
 )
 
-const GenericGuide = ({title, children}:{title:string, children:ReactNode}) => {
+const GenericGuide = ({title, subtitle ,children}:{title:string,subtitle:string , children:ReactNode}) => {
     return (
         <AppDialog
       trigger={triggerButton}
@@ -20,7 +20,7 @@ const GenericGuide = ({title, children}:{title:string, children:ReactNode}) => {
           {title}
         </>
       }
-      subtitle="لعبة خداع، شك، وتحليل... وكل واحد عنده دور مخبيّه."
+      subtitle={subtitle}
     >
       {children}
     </AppDialog>

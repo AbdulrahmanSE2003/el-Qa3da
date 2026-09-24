@@ -5,6 +5,7 @@ import { ArrowRight, Moon, Sun } from "lucide-react"
 import Link from "next/link"
 
 import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 
 const Header = ({
   stamp,
@@ -16,6 +17,12 @@ const Header = ({
   linkText?: string
 }) => {
   const { resolvedTheme, setTheme } = useTheme()
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
@@ -40,11 +47,15 @@ const Header = ({
             aria-label="تغيير المظهر"
             className="flex size-8 items-center justify-center border border-ink/10 text-ink-soft transition-colors hover:border-copper/30 hover:text-copper"
           >
-            {resolvedTheme === "dark" ? (
+            {mounted ? (
+            resolvedTheme === "dark" ? (
               <Sun className="size-4" />
             ) : (
               <Moon className="size-4" />
-            )}
+            )
+          ) : (
+            <span className="size-4" />
+          )}
           </button>
 
           <span className="border border-copper/30 bg-copper/10 px-2.5 py-2 font-mono text-[10px] font-bold tracking-widest text-copper">

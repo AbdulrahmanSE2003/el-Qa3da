@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
+import { useEffect, useState } from "react"
 
 export interface Qa3daCardProps {
   id: string
@@ -15,7 +16,12 @@ export default function Qa3daCard({
   badgeLabel = "موضوع",
   category,
 }: Qa3daCardProps) {
-  console.log(category)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
 
   return (
     <div
@@ -52,16 +58,20 @@ export default function Qa3daCard({
               ✦✦ ❖ ✦✦
             </div>
             <div className="badge-pill">
-              <span className="text-[10px] font-black tracking-wider text-danger-brand uppercase">
-                {category}
-              </span>
+              {mounted && category && (
+                <>
+                  <span className="font-mono text-[11px] text-copper/70">
+                    {category}
+                  </span>
+                </>
+              )}
             </div>
           </div>
 
           {/* Main Text */}
           <div className="relative z-10 my-auto py-2">
             <p className="text-xl leading-loose font-extrabold tracking-tight text-ink md:text-[28px]">
-              {text}
+              {mounted ? text : ""}
             </p>
           </div>
 

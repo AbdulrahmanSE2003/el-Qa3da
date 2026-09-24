@@ -1,21 +1,6 @@
-// src/content/topics.ts
 
-export interface Topic {
-  id: string
-  text: string
-  category:
-    | "عميقة"
-    | "مضحكة"
-    | "ذكريات"
-    | "خيارات"
-    | "اعترافات"
-    | "خيالية"
-    | "علاقات"
-    | "شغل وعلم"
-    | "عالم موازي"
-}
 
-export const topics: Topic[] = [
+export const topics = [
   // ==================== عميقة (Deep) [1-70] ====================
   {
     id: "01",

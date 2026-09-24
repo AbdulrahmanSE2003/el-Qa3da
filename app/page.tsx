@@ -10,6 +10,8 @@ import {
 } from "@/components/layout/ActivityCard"
 import HomeBottomNav from "@/components/layout/HomeBottomNav"
 import { activities } from "@/lib/constants"
+import GenericGuide from "@/components/ui/GenericGuide"
+import { PlatformGuide } from "@/lib/Guides"
 
 
 
@@ -21,7 +23,13 @@ export default function HomePage() {
 
       <div className="relative z-10 mx-auto flex w-full max-w-md flex-col">
         {/* Brand */}
-        <Header />
+        <div className={`flex items-center justify-between`}>
+          <Header />
+
+          <GenericGuide title="القعدة" subtitle="كل حاجة محتاج تعرفها قبل ما تبدأ — في دقيقتين" >
+            <PlatformGuide/>
+          </GenericGuide>
+        </div>
 
         {/* Intro */}
         <section className="mt-10 mb-5">

@@ -20,11 +20,11 @@ const navItems = [
     label: "القعدة",
     icon: Users,
   },
-  {
-    href: "/more",
-    label: "المزيد",
-    icon: Menu,
-  },
+  // {
+  //   href: "/more",
+  //   label: "المزيد",
+  //   icon: Menu,
+  // },
 ]
 
 const HomeBottomNav = () => {

@@ -9,6 +9,7 @@ import {
   Sparkles,
   Zap,
 } from "lucide-react"
+import { ActivityCardItem } from "@/components/layout/ActivityCard"
 
 
 export const activities: ActivityCardItem[] = [

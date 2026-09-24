@@ -26,7 +26,7 @@ const Header = ({
       <div className="flex items-center justify-between border-b border-ink/10 pb-3">
         <Link
           href={href || "/"}
-          className="group flex items-center gap-1.5 font-mono text-xs font-bold text-ink-soft transition-colors hover:text-copper"
+          className="group flex items-center gap-1.5 text-xs font-bold text-ink-soft transition-colors hover:text-copper"
         >
           <ArrowRight className="size-4 transition-transform duration-200 group-hover:-translate-x-0.5" />
 

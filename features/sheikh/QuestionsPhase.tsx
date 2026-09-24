@@ -24,10 +24,6 @@ export function QuestionsPhase({
             <p className="text-sm font-bold text-ink-soft/50">شيخ الحارة</p>
             <h1 className="mt-1 text-3xl font-black">{sheikh.name}</h1>
           </div>
-
-          <span className="font-mono text-[10px] font-bold tracking-widest text-copper">
-            QUESTION
-          </span>
         </div>
 
         <div className="mt-4 border-2 border-ink bg-paper-warm p-6 shadow-[5px_5px_0_var(--color-ink)]">

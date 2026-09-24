@@ -6,6 +6,7 @@ import {
   Dices,
   Gamepad2,
   MessageCircle,
+  PlantPot,
   Sparkles,
   Zap,
 } from "lucide-react"
@@ -38,7 +39,16 @@ export const activities: ActivityCardItem[] = [
     icon: CircleQuestionMark,
   },
   {
-    number: "04",
+  number: "04",
+  stamp: "ZAD",
+  title: "زاد القعدة",
+  description: "خواطر إيمانية، أذكار، ونقاط تُصلِح القلوب وتجمعنا على خير.",
+  href: "/zad",
+  icon: PlantPot,
+  className: "col-span-2 border-2 border-copper/40 shadow-copper/40",
+},
+  {
+    number: "05",
     stamp: "GAMES",
     title: "ألعاب",
     description: "هنا القعدة هتبدأ بجد.",

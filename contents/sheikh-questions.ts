@@ -1,4 +1,3 @@
-// src/content/0questions.ts
 
 export interface SheikhQuestion {
   id: string

@@ -25,7 +25,7 @@ export default function Qa3daCard({
 
   return (
     <div
-      className="relative flex min-h-85 w-full items-center justify-center p-4"
+      className="relative flex min-h-85 w-full items-center justify-center py-4"
       style={{ perspective: "1000px" }}
     >
       <AnimatePresence mode="wait">

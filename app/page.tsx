@@ -12,10 +12,21 @@ import HomeBottomNav from "@/components/layout/HomeBottomNav"
 import { activities } from "@/lib/constants"
 import GenericGuide from "@/components/ui/GenericGuide"
 import { PlatformGuide } from "@/lib/Guides"
+import { useEffect } from "react"
 
 
 
 export default function HomePage() {
+  
+  // TODO
+  // useEffect(() => {
+  // if ('serviceWorker' in navigator) {
+  //       navigator.serviceWorker.addEventListener('controllerchange', () => {
+  //       })
+  //   }
+// }, [])
+
+
   return (
     <main className="relative overflow-hidden bg-paper px-5 pb-24 text-ink">
       <GridPattern />

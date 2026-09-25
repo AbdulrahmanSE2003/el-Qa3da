@@ -32,6 +32,54 @@ export const gameThemes = {
     iconBg: "text-stone-800/80",
     actionBtn: "bg-stone-800 text-copper border-copper/40",
   },
+  cyberpunk: {
+    card: "bg-slate-950 border-cyan-500/50 shadow-[4px_4px_0_#06b6d4]",
+    hoverShadow: "hover:shadow-[7px_7px_0_#06b6d4]",
+    title: "text-slate-100 group-hover:text-yellow-400",
+    description: "text-slate-400",
+    accent: "text-yellow-400",
+    badge: "bg-yellow-400 text-slate-950 font-bold border border-yellow-300",
+    iconBox: "bg-slate-900 border-cyan-400 text-cyan-400",
+    iconBg: "text-slate-800",
+    actionBtn:
+      "bg-cyan-500 text-slate-950 font-bold border-cyan-400 group-hover:bg-cyan-400",
+  },
+  emerald: {
+    card: "bg-emerald-950 border-emerald-800 shadow-[4px_4px_0_#064e3b]",
+    hoverShadow: "hover:shadow-[7px_7px_0_#064e3b]",
+    title: "text-emerald-100 group-hover:text-emerald-400",
+    description: "text-emerald-300/70",
+    accent: "text-emerald-400",
+    badge: "bg-emerald-800 text-emerald-200 border border-emerald-600/50",
+    iconBox: "bg-emerald-900/60 border-emerald-700 text-emerald-400",
+    iconBg: "text-emerald-900/40",
+    actionBtn:
+      "bg-emerald-700 text-emerald-100 border-emerald-500 group-hover:bg-emerald-600",
+  },
+  synthwave: {
+    card: "bg-fuchsia-950 border-purple-800 shadow-[4px_4px_0_#581c87]",
+    hoverShadow: "hover:shadow-[7px_7px_0_#581c87]",
+    title: "text-purple-100 group-hover:text-fuchsia-400",
+    description: "text-purple-300/70",
+    accent: "text-fuchsia-400",
+    badge: "bg-fuchsia-800 text-fuchsia-100 border border-fuchsia-500/50",
+    iconBox: "bg-purple-900/60 border-purple-700 text-fuchsia-400",
+    iconBg: "text-purple-950",
+    actionBtn:
+      "bg-fuchsia-700 text-white border-fuchsia-500 group-hover:bg-fuchsia-600",
+  },
+  nordic: {
+    card: "bg-slate-900 border-slate-700 shadow-[4px_4px_0_#334155]",
+    hoverShadow: "hover:shadow-[7px_7px_0_#334155]",
+    title: "text-slate-100 group-hover:text-sky-300",
+    description: "text-slate-400",
+    accent: "text-sky-400",
+    badge: "bg-sky-900 text-sky-200 border border-sky-600/50",
+    iconBox: "bg-slate-800 border-slate-600 text-sky-400",
+    iconBg: "text-slate-950",
+    actionBtn:
+      "bg-sky-600 text-slate-950 font-bold border-sky-400 group-hover:bg-sky-500",
+  },
 } as const
 
 export type GameTheme = keyof typeof gameThemes

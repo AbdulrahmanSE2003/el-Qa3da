@@ -1,4 +1,4 @@
-import { Ghost, Glasses, LucideIcon, Skull } from "lucide-react"
+import { Dices, Ghost, Glasses, LucideIcon, Skull } from "lucide-react"
 import { GameTheme } from "../lib/gameTheme"
 
 export interface GameItem {
@@ -24,12 +24,13 @@ export const GAMES_LIST: GameItem[] = [
     isRecommended: true,
   },
   {
-    id: "mafioso",
-    title: "مافيوسو",
-    description: "لعبة مافيا بشكل مختلف ولسه جاية.",
-    status: "قريبًا",
-    icon: Skull,
-    theme: "sepia",
+    id: "casino",
+    title: "كافيه الألعاب",
+    description: "لعبة أسألة عامة جماعية تنافسية.",
+    status: "متاحة",
+    icon: Dices,
+    href: "/games/casino",
+    theme: "nordic",
   },
   {
     id: "bekasa",

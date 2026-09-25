@@ -2,6 +2,7 @@ export interface ContentItem {
   id: string
   text: string
   category?: string
+  correct_answer?: string
 }
 
 export const createContentDeck = <T extends ContentItem>(items: T[]) => {

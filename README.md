@@ -151,7 +151,7 @@ The application does **not** require `.env` files for core functionality. The on
 
 This project follows **Semantic Versioning** (`MAJOR.MINOR.PATCH`).
 
-- **Current version:** `0.0.1`
+- **Current version:** `1.3.0`
 - Releases are published to the npm registry and tagged in Git.
 - Commit messages should follow **Conventional Commits** format to enable automated changelog generation via `pnpm changelog`.
 

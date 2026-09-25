@@ -31,7 +31,7 @@ const NightResult = ({ game, onChange }: NightResultProps) => {
 
   return (
     <section className="flex w-full flex-col gap-6">
-      <div className="border-b border-ink/10 pb-5">
+      <div className="border-b border-ink/20 pb-5">
         <p className="font-mono text-[10px] font-bold tracking-[0.25em] text-copper">
           NIGHT {game.night} / RESULT
         </p>
@@ -42,7 +42,7 @@ const NightResult = ({ game, onChange }: NightResultProps) => {
           شوفوا إيه اللي حصل بالليل.
         </p>
       </div>
-      <div className="bg-warm-paper border border-ink/10 p-6">
+      <div className="bg-warm-paper border border-ink/20 p-6">
         {killedPlayer && (
           <div className="flex items-start gap-4">
             <Skull className="mt-1 size-5 shrink-0 text-danger-brand" />
@@ -58,7 +58,7 @@ const NightResult = ({ game, onChange }: NightResultProps) => {
         )}
 
         {savedPlayer && (
-          <div className="border-t border-ink/10 pt-5">
+          <div className="border-t border-ink/20 pt-5">
             <div className="flex items-start gap-4">
               <ShieldCheck className="mt-1 size-5 shrink-0 text-copper" />
 
@@ -72,7 +72,7 @@ const NightResult = ({ game, onChange }: NightResultProps) => {
         )}
 
         {game.lastPoliceResult && policeTarget && (
-          <div className="mt-6 border-t border-ink/10 pt-5">
+          <div className="mt-6 border-t border-ink/20 pt-5">
             <p className="font-bold text-ink">
               {policeTarget.name} اتكشف إنه مافيا وخرج من اللعبة.
             </p>
@@ -80,7 +80,7 @@ const NightResult = ({ game, onChange }: NightResultProps) => {
         )}
 
         {silencedPlayer && (
-          <div className="mt-6 border-t border-ink/10 pt-5">
+          <div className="mt-6 border-t border-ink/20 pt-5">
             <div className="flex items-start gap-4">
               <VolumeX className="mt-1 size-5 shrink-0 text-copper" />
 

@@ -5,6 +5,7 @@ import Link from "next/link"
 
 import type { AmirGameState } from "@/games/amir-el-zalam/types"
 import { Button } from "@/components/ui/button"
+import { cn } from "cn"
 
 interface GameFinishedProps {
   game: AmirGameState
@@ -15,7 +16,7 @@ const GameFinished = ({ game }: GameFinishedProps) => {
 
   return (
     <section className="flex w-full flex-col gap-6">
-      <div className="border-b border-ink/10 pb-5">
+      <div className="border-b border-ink/20 pb-5">
         <p className="font-mono text-[10px] font-bold tracking-[0.25em] text-copper">
           GAME OVER
         </p>
@@ -47,21 +48,20 @@ const GameFinished = ({ game }: GameFinishedProps) => {
         {game.players.map((player) => (
           <div
             key={player.id}
-            className="bg-warm-paper flex items-center justify-between border border-ink/10 px-4 py-3"
+            className="bg-warm-paper flex items-center justify-between border border-ink/20 px-4 py-3"
           >
             <span className="font-bold text-ink">{player.name}</span>
 
-            <span className="font-mono text-xs text-ink-soft">
+            <span className={cn("text-xs font-bold ", player.role === "mafia" ? " text-ink-glow" : " text-ink ")}>
               {getRoleLabel(player.role)}
             </span>
           </div>
         ))}
       </div>
 
-      <Button variant={"link"} asChild>
+      <Button variant={"outline"} asChild>
         <Link
           href="/games"
-          className="flex w-full items-center justify-center bg-ink px-5 py-4 text-sm font-bold text-paper transition-colors hover:bg-ink-soft"
         >
           رجوع للألعاب
         </Link>

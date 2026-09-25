@@ -18,7 +18,7 @@ const DiscussionPhase = ({ game, onChange }: DiscussionPhaseProps) => {
 
   return (
     <section className="flex w-full flex-col gap-6">
-      <div className="border-b border-ink/10 pb-5">
+      <div className="border-b border-ink/20 pb-5">
         <p className="font-mono text-[10px] font-bold tracking-[0.25em] text-copper">
           DAY {game.night}
         </p>
@@ -34,7 +34,7 @@ const DiscussionPhase = ({ game, onChange }: DiscussionPhaseProps) => {
         </p>
       </div>
 
-      <div className="bg-warm-paper border border-ink/10 p-5">
+      <div className="bg-warm-paper border border-ink/20 p-5">
         <div className="flex items-center gap-3">
           <MessageCircle className="size-5 text-copper" />
 
@@ -54,7 +54,7 @@ const DiscussionPhase = ({ game, onChange }: DiscussionPhaseProps) => {
               className={`border px-3 py-1 text-sm font-bold ${
                 player.silenced
                   ? "border-danger-brand/20 bg-danger-brand/5 text-danger-brand"
-                  : "border-ink/10 bg-paper text-ink"
+                  : "border-ink/20 bg-paper text-ink"
               }`}
             >
               {player.name}

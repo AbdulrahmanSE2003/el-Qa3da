@@ -25,7 +25,7 @@ const EliminationPhase = ({ game, onChange }: EliminationPhaseProps) => {
 
   return (
     <section className="flex w-full flex-col gap-6">
-      <div className="border-b border-ink/10 pb-5">
+      <div className="border-b border-ink/20 pb-5">
         <p className="font-mono text-[10px] font-bold tracking-[0.25em] text-copper">
           VOTE
         </p>
@@ -51,7 +51,7 @@ const EliminationPhase = ({ game, onChange }: EliminationPhaseProps) => {
               className={`flex items-center gap-3 border p-4 text-right transition-colors ${
                 selected
                   ? "border-danger-brand bg-danger-brand/5"
-                  : "bg-warm-paper border-ink/10 hover:border-copper/40"
+                  : "bg-warm-paper border-ink/20 hover:border-copper/40"
               }`}
             >
               <Gavel

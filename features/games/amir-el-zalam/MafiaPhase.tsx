@@ -56,7 +56,7 @@ const MafiaPhase = ({ game, onChange }: MafiaPhaseProps) => {
 
   return (
     <section className="flex w-full flex-col gap-6">
-      <div className="border-b border-ink/10 pb-5">
+      <div className="border-b border-ink/20 pb-5">
         <p className="font-mono text-[10px] font-bold tracking-[0.25em] text-copper">
           NIGHT {game.night}
         </p>
@@ -70,7 +70,7 @@ const MafiaPhase = ({ game, onChange }: MafiaPhaseProps) => {
         </p>
       </div>
 
-      <div className="bg-warm-paper border border-ink/10 p-5">
+      <div className="bg-warm-paper border border-ink/20 p-5">
         <div className="flex items-center gap-3">
           <div>
             <p className="font-bold text-ink">المافيا الموجودة</p>
@@ -138,7 +138,7 @@ const TargetSection = ({
   const Icon = icon
 
   return (
-    <div className="bg-warm-paper border border-ink/10 p-5">
+    <div className="bg-warm-paper border border-ink/20 p-5">
       <div className="flex items-center gap-3">
         <div className="mt-0.5 text-copper">
           <Icon className="size-7" />
@@ -163,7 +163,7 @@ const TargetSection = ({
               className={`border px-4 py-3 text-right text-sm font-bold transition-colors ${
                 selected
                   ? "border-copper bg-copper/10 text-copper"
-                  : "border-ink/10 bg-paper text-ink hover:border-copper/40"
+                  : "border-ink/20 bg-paper text-ink hover:border-copper/40"
               }`}
             >
               {player.name}

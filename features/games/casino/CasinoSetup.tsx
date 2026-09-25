@@ -7,8 +7,9 @@ import { createGame } from "@/games/casino"
 import { useState } from "react"
 import GameGuideModal from "./GameGuideModal"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, PencilLine } from "lucide-react"
 import { CasinoGame } from "@/games/casino/types"
+import Link from "next/link"
 
 const CasinoSetup = ({
   onChange,
@@ -72,6 +73,17 @@ const CasinoSetup = ({
             </Badge>
           ))}
         </div>
+
+        <Button
+          className={`mt-5 flex w-full items-center justify-start gap-3`}
+          variant={"ghost"}
+          asChild
+        >
+          <Link href={"/players?redirect=/games/casino"}>
+            <PencilLine />
+            عدل الشلّة
+          </Link>
+        </Button>
       </div>
 
       {/* Button */}

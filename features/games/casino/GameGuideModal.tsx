@@ -4,7 +4,10 @@ import { CasinoElAlabGuide } from "@/lib/Guides"
 const GameGuideModal = () => {
   return (
     <div>
-      <GenericGuide title="كافيه الألعاب" subtitle="">
+      <GenericGuide
+        title="كافيه الألعاب"
+        subtitle="لعبة أسألة عامة جماعية تنافسية."
+      >
         <CasinoElAlabGuide />
       </GenericGuide>
     </div>

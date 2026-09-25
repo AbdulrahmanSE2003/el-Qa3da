@@ -1,7 +1,7 @@
 import { Sparkles } from "lucide-react"
-const Header = () => {
+const Hero = () => {
   return (
-    <header className="pt-4 text-center flex items-start flex-col">
+    <header className="flex flex-col items-start pt-4 text-center">
       <h1 className="text-6xl font-black text-ink-glow">القعدة</h1>
 
       <p className="text-sm font-bold tracking-tight text-ink-soft/75">
@@ -11,4 +11,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Hero

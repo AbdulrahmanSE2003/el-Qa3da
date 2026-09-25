@@ -32,7 +32,7 @@ const HomeBottomNav = () => {
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-50">
-      <div className="mx-auto flex w-full max-w-md items-center justify-around border border-ink/10 bg-paper/95 p-2 shadow-lg backdrop-blur-sm">
+      <div className="mx-auto flex w-full items-center justify-around border border-ink/10 bg-paper/95 p-2 shadow-lg backdrop-blur-sm">
         {navItems.map((item) => {
           const Icon = item.icon
           const isActive = pathname === item.href

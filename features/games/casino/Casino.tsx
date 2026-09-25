@@ -1,21 +1,25 @@
 "use client"
 
-import { CasinoGameState } from "@/games/casino/types"
 import { useState } from "react"
+import { CasinoGame } from "@/games/casino/types"
 import CasinoSetup from "./CasinoSetup"
 import CasinoPlay from "./CasinoPlay"
 import CasinoResult from "./CasinoResult"
 
 const Casino = () => {
-  const [game, setGame] = useState<CasinoGameState>("setup")
+  const [game, setGame] = useState<CasinoGame | null>(null)
 
-  switch (game) {
-    case "setup":
-      return <CasinoSetup onStart={setGame} />
+  if (!game) {
+    return <CasinoSetup onChange={setGame} />
+  }
+
+  switch (game.phase) {
     case "game":
-      return <CasinoPlay />
+      return <CasinoPlay game={game} onChange={setGame} />
+
     case "finished":
-      return <CasinoResult />
+      return <CasinoResult game={game} onChange={setGame} />
+
     default:
       return null
   }

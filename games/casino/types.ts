@@ -12,7 +12,6 @@ export interface CasinoGame {
   phase: CasinoGameState
   players: CasinoGamePlayer[]
   winner: CasinoGamePlayer | null
-  currentQuestion: () => CasinoQuestion | null
-  usedQuestionIds: string[]
+  currentQuestion: CasinoQuestion | null
   winningScore: number
 }

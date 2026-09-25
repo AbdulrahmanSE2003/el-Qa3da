@@ -10,13 +10,13 @@ export const createGame = (
   winningScore: number
 ): CasinoGame => {
   return {
-    phase: "setup",
+    phase: "game",
     players: players.map((player) => ({
       ...player,
       score: 0,
     })),
     winningScore,
-    currentQuestion: null,
+    currentQuestion: questionsDeck.next(),
     winner: null,
   }
 }
@@ -46,8 +46,28 @@ export const changePlayerScore = (
       : p
   )
 
+  const updatedPlayer = newPlayers.find((p) => p.id === player.id)!
+
   return {
     ...game,
     players: newPlayers,
+    winner: updatedPlayer.score >= game.winningScore ? updatedPlayer : null,
+    phase: updatedPlayer.score >= game.winningScore ? "finished" : "game",
+  }
+}
+
+export const RestartGame = (
+  players: CasinoGamePlayer[],
+  game: CasinoGame
+): CasinoGame => {
+  return {
+    currentQuestion: questionsDeck.next(),
+    phase: "game",
+    players: game.players.map((player) => ({
+      ...player,
+      score: 0,
+    })),
+    winner: null,
+    winningScore: 10,
   }
 }

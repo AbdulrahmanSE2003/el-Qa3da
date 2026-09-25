@@ -8,19 +8,20 @@ import { useState } from "react"
 import GameGuideModal from "./GameGuideModal"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import { CasinoGameState } from "@/games/casino/types"
+import { CasinoGame } from "@/games/casino/types"
 
 const CasinoSetup = ({
-  onStart,
+  onChange,
 }: {
-  onStart: (setup: CasinoGameState) => void
+  onChange: (game: CasinoGame) => void
 }) => {
   const { players } = usePartyStore()
   const [winningScore, setWinningScore] = useState(10)
 
   const handleStart = () => {
-    createGame(players, winningScore)
-    onStart("game")
+    const game = createGame(players, winningScore)
+
+    onChange(game)
   }
 
   return (

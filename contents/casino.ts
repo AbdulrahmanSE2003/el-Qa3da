@@ -2023,12 +2023,6 @@ export const casinoQuestions: CasinoQuestion[] = [
     correct_answer: "3",
   },
   {
-    id: " 337",
-    category: "أغاني",
-    text: "من غنى أغنية '365 يوم' أو 'اللي بالي بالك'؟",
-    correct_answer: "محمد سعد",
-  },
-  {
     id: " 338",
     category: "معلومات عامة",
     text: "ما هو أكبر هرم في الجيزة؟",
@@ -4756,7 +4750,7 @@ export const casinoQuestions: CasinoQuestion[] = [
     id: "193",
     category: "أفلام",
     text: "من بطل فيلم 'بوبوس'؟",
-    correct_answer: "محمد سعد",
+    correct_answer: "عادل إمام",
   },
   {
     id: "194",

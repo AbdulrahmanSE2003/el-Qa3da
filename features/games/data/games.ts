@@ -1,4 +1,12 @@
-import { Dices, Ghost, Glasses, LucideIcon, Skull } from "lucide-react"
+import {
+  Bomb,
+  Dices,
+  Ghost,
+  Glasses,
+  LucideIcon,
+  Skull,
+  Swords,
+} from "lucide-react"
 import { GameTheme } from "../lib/gameTheme"
 
 export interface GameItem {
@@ -39,5 +47,13 @@ export const GAMES_LIST: GameItem[] = [
     status: "قريبًا",
     icon: Glasses,
     theme: "copper",
+  },
+  {
+    id: "bomb",
+    title: "قنبلة",
+    description: "لعبة جديدة للقعدة ولسه بنجهزها.",
+    status: "قريبًا",
+    icon: Bomb,
+    theme: "cyberpunk",
   },
 ]
